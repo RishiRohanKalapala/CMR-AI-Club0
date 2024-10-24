@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyDB Event - Code Playground</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- CodeMirror CSS for code editor styling -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/material.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles for Responsive Images */
+        .responsive-logo {
+            max-width: 200px; /* Adjust as needed */
+            height: auto;
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+
+<!-- Hero Banner Section -->
+<section class="relative bg-gradient-to-r from-blue-800 to-blue-600 text-white py-20">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2">
+            <h1 class="text-5xl font-extrabold mb-4">Master Python & Databases</h1>
+            <p class="text-lg mb-8">Join us for an engaging event that dives deep into Python programming and SQL database integration.</p>
+            <button class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out">Register Now</button>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+            <img src="https://ideogram.ai/assets/image/lossless/response/j877nyl3RWC6hPNCC9LRig" alt="Event Logo" class="responsive-logo max-w-xs md:max-w-md lg:max-w-lg">
+        </div>
+    </div>
+</section>
+
+
+<!-- Event Detail Section -->
+<section class="py-20 bg-white text-gray-800">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12">Event Details</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-gray-100 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Event Schedule</h3>
+                <p class="mb-2"><strong>Date:</strong> Sep 10, 2024</p>
+                <p class="mb-2"><strong>Time:</strong> 10:00 AM - 4:00 PM</p>
+                <p class="mb-2"><strong>Location:</strong> CMRIT College Labs</p>
+                <p class="mb-2"><strong>Agenda:</strong></p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Introduction to Python and SQL</li>
+                    <li>Hands-on coding session</li>
+                    <li>Networking and Q&A</li>
+                </ul>
+                <button class="bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 hover:bg-blue-700">View Full Schedule</button>
+            </div>
+            <div class="bg-gray-100 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Speakers</h3>
+                <div class="flex flex-col space-y-4">
+                    <div class="flex items-center">
+                        <img src="https://dhondi.cmrithyderabad.edu.in/sharedfiles/e0d341de643812c29a19aac35b9e7d87/studentPhotos/22R01A7376.jpg" alt="Speaker 1" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Sharanya Reddy Boda 
+                            </h4>
+                            <p class="text-gray-600">Python Educator</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <img src="https://dhondi.cmrithyderabad.edu.in/sharedfiles/e0d341de643812c29a19aac35b9e7d87/studentPhotos/22R01A7309.jpg" alt="Speaker 2" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Surya Chand</h4>
+                            <p class="text-gray-600">SQL Database </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Redesigned Interactive Code Playground Section with Online IDE Buttons -->
+<section class="py-20 bg-gradient-to-b from-blue-50 via-white to-blue-50 text-center">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-extrabold text-blue-700 mb-10">Interactive Code Playground</h2>
+
+        <!-- Introductory Text -->
+        <div class="max-w-3xl mx-auto mb-12">
+            <p class="text-lg text-gray-700">
+                Test and explore Python and SQL in real-time! Write your own code or start with the pre-filled samples.
+                Execute your code to see the output instantly, or use an online IDE for a complete environment.
+            </p>
+        </div>
+
+        <!-- Playground Containers -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- Python Editor -->
+            <div class="bg-white p-6 shadow-xl rounded-lg">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold text-blue-600">Python Code Editor</h3>
+                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition duration-300" onclick="resetPythonEditor()">Reset</button>
+                </div>
+                <textarea id="python-editor" class="w-full h-64 p-4 bg-gray-900 text-white font-mono text-lg rounded-md mt-4 resize-none focus:outline-none" readonly>
+// Sample Python Code
+print("Welcome to the PyDB Event!")
+                </textarea>
+                <button class="mt-4 w-full bg-blue-600 text-white font-bold py-3 rounded-lg transition duration-300 hover:bg-blue-700" onclick="executePythonCode()">Run Python Code</button>
+                <div id="python-output" class="mt-4 bg-gray-200 p-4 rounded-lg text-left text-lg font-mono h-32 overflow-auto"></div>
+                <!-- Python Online IDE Button -->
+                <a href="https://www.programiz.com/python-programming/online-compiler/" target="_blank" class="inline-block mt-4 bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 hover:bg-gray-900">Open Python Online IDE</a>
+            </div>
+
+            <!-- SQL Editor -->
+            <div class="bg-white p-6 shadow-xl rounded-lg">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold text-blue-600">SQL Query Editor</h3>
+                    <button class="bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition duration-300" onclick="resetSQLEditor()">Reset</button>
+                </div>
+                <textarea id="sql-editor" class="w-full h-64 p-4 bg-gray-900 text-white font-mono text-lg rounded-md mt-4 resize-none focus:outline-none" readonly>
+// Sample SQL Query
+SELECT * FROM events WHERE name = 'PyDB Event';
+                </textarea>
+                <button class="mt-4 w-full bg-blue-600 text-white font-bold py-3 rounded-lg transition duration-300 hover:bg-blue-700" onclick="executeSQLQuery()">Run SQL Query</button>
+                <div id="sql-output" class="mt-4 bg-gray-200 p-4 rounded-lg text-left text-lg font-mono h-32 overflow-auto"></div>
+                <!-- SQL Online IDE Button -->
+                <a href="https://extendsclass.com/sqlite-browser.html" target="_blank" class="inline-block mt-4 bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 hover:bg-gray-900">Open SQL Online IDE</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function executePythonCode() {
+        const pythonOutput = document.getElementById("python-output");
+        pythonOutput.innerText = "Welcome to the PyDB Event!";
+    }
+
+    function executeSQLQuery() {
+        const sqlOutput = document.getElementById("sql-output");
+        sqlOutput.innerText = "Executing query: SELECT * FROM events WHERE name = 'PyDB Event';";
+    }
+
+    function resetPythonEditor() {
+        document.getElementById("python-editor").value = "// Sample Python Code\nprint(\"Welcome to the PyDB Event!\")";
+        document.getElementById("python-output").innerText = "";
+    }
+
+    function resetSQLEditor() {
+        document.getElementById("sql-editor").value = "// Sample SQL Query\nSELECT * FROM events WHERE name = 'PyDB Event';";
+        document.getElementById("sql-output").innerText = "";
+    }
+</script>
+
+
+<!-- Team Section -->
+<section class="py-16 bg-blue-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-blue-900 mb-12">Meet the Team</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <!-- Team Member 1 -->
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+                <img src="https://dhondi.cmrithyderabad.edu.in/sharedfiles/e0d341de643812c29a19aac35b9e7d87/studentPhotos/22R01A7309.jpg" alt="Team Member 1" class="w-32 h-32 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold">Surya Chand</h3>
+                <p class="text-gray-600"> Event Organizer</Head></p>
+                <div class="mt-4">
+                    <a href="#" class="text-blue-500">LinkedIn</a> | <a href="#" class="text-blue-500">GitHub</a>
+                </div>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+                <img src="https://dhondi.cmrithyderabad.edu.in/sharedfiles/e0d341de643812c29a19aac35b9e7d87/studentPhotos/22R01A7390.jpg" alt="Team Member 2" class="w-32 h-32 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold">Bhavana</h3>
+                <p class="text-gray-600">Code Head</p>
+                <div class="mt-4">
+                    <a href="#" class="text-blue-500">LinkedIn</a> | <a href="#" class="text-blue-500">GitHub</a>
+                </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+                <img src="bmk.png" alt="Team Member 3" class="w-32 h-32 mx-auto rounded-full mb-4">
+                <h3 class="text-xl font-semibold">Bala Murali Krishna</h3>
+                <p class="text-gray-600">Event Head</p>
+                <div class="mt-4">
+                    <a href="#" class="text-blue-500">LinkedIn</a> | <a href="#" class="text-blue-500">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 bg-blue-100">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-blue-900 mb-8">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white shadow-lg rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">Do I need prior coding experience?</h3>
+                <p class="text-gray-700">No prior experience is required, but familiarity with Python or databases will be beneficial. Beginners are welcome!</p>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">Will there be hands-on projects?</h3>
+                <p class="text-gray-700">Yes! You’ll work on real-world projects during the event, focusing on Python and database integration.</p>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">How do I access the code playground?</h3>
+                <p class="text-gray-700">The interactive code playground is available on this page. You can run Python and SQL code live, right here!</p>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">Can I participate remotely?</h3>
+                <p class="text-gray-700">Yes, this event is online, and you can join from anywhere in the world!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-blue-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+        <p>© 2024 PyDB Event. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- CodeMirror JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/sql/sql.min.js"></script>
+
+<script>
+    const pythonEditor = CodeMirror.fromTextArea(document.getElementById('pythonEditor'), {
+        mode: 'python',
+        theme: 'material',
+        lineNumbers: true
+    });
+
+    const sqlEditor = CodeMirror.fromTextArea(document.getElementById('sqlEditor'), {
+        mode: 'sql',
+        theme: 'material',
+        lineNumbers: true
+    });
+
+    document.getElementById('runPythonCode').addEventListener('click', function () {
+        const output = document.getElementById('output');
+        const pythonCode = pythonEditor.getValue();
+        output.innerHTML = `<pre>${pythonCode}</pre>`;
+    });
+
+    document.getElementById('runSQLCode').addEventListener('click', function () {
+        const output = document.getElementById('output');
+        const sqlCode = sqlEditor.getValue();
+        output.innerHTML = `<pre>${sqlCode}</pre>`;
+    });
+</script>
+</body>
+</html>
